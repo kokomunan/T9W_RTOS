@@ -1,0 +1,64 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         
+    2 00000000                 EXPORT           OS_CPU_SR_Save
+    3 00000000                 EXPORT           OS_CPU_SR_Restore
+    4 00000000         
+    5 00000000                 PRESERVE8
+    6 00000000         
+    7 00000000                 AREA             |.text|, CODE, READONLY
+    8 00000000                 THUMB
+    9 00000000         
+   10 00000000         
+   11 00000000         OS_CPU_SR_Save
+   12 00000000 F3EF 8010       MRS              R0, PRIMASK
+   13 00000004 B672            CPSID            I
+   14 00000006 4770            BX               LR
+   15 00000008         
+   16 00000008         OS_CPU_SR_Restore
+   17 00000008 F380 8810       MSR              PRIMASK, R0
+   18 0000000C 4770            BX               LR
+   19 0000000E                 end
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp --apcs=int
+erwork --depend=nebula_master_401\cpu_a.d -onebula_master_401\cpu_a.o -IE:\ÑÐ¾¿
+Ä¿Â¼\soft\T9W_MCU_H3_RTOS_V0.40\nebula_master_401\MDK-ARM\RTE -IC:\Keil_v5\ARM\
+PACK\ARM\CMSIS\4.5.0\CMSIS\Include -IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9
+.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include --predefine="__MICROLIB SETA 1" --
+predefine="__UVISION_VERSION SETA 517" --predefine="_RTE_ SETA 1" --predefine="
+STM32F401xE SETA 1" --list=cpu_a.lst ..\Lib\cpu_a.asm
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+.text 00000000
+
+Symbol: .text
+   Definitions
+      At line 7 in file ..\Lib\cpu_a.asm
+   Uses
+      None
+Comment: .text unused
+OS_CPU_SR_Restore 00000008
+
+Symbol: OS_CPU_SR_Restore
+   Definitions
+      At line 16 in file ..\Lib\cpu_a.asm
+   Uses
+      At line 3 in file ..\Lib\cpu_a.asm
+Comment: OS_CPU_SR_Restore used once
+OS_CPU_SR_Save 00000000
+
+Symbol: OS_CPU_SR_Save
+   Definitions
+      At line 11 in file ..\Lib\cpu_a.asm
+   Uses
+      At line 2 in file ..\Lib\cpu_a.asm
+Comment: OS_CPU_SR_Save used once
+3 symbols
+338 symbols in table
